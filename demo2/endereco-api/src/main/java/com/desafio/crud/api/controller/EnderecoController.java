@@ -1,5 +1,6 @@
 package com.desafio.crud.api.controller;
 
+import com.desafio.crud.consumer.CepApiRestClientConsumer;
 import com.desafio.crud.core.model.Endereco;
 import com.desafio.crud.core.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class EnderecoController {
 
     @Autowired
     private EnderecoService enderecoService;
+
+    @Autowired
+    private CepApiRestClientConsumer cepApiRestClientConsumer;
 
     @PostMapping
     public ResponseEntity incluirEndereco(@RequestBody @Valid Endereco endereco){
@@ -50,4 +54,10 @@ public class EnderecoController {
         enderecoService.delete(Long.parseLong(id));
         return ResponseEntity.ok().build();
     }
+
+   /* //TODO remover após finalizar os testes
+   @GetMapping(path = "/cep/{cep}")
+    public ResponseEntity buscarEnderecoPorCep(@PathVariable("cep") String cep) throws Exception {
+        return ResponseEntity.ok().body(cepApiRestClientConsumer.getEnderecoByCEP(cep));
+    }*/
 }
