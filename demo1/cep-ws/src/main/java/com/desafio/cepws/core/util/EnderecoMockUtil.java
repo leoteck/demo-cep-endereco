@@ -43,7 +43,6 @@ public class EnderecoMockUtil {
     }
 
     public List<Endereco> getEnderecos() {
-        //return CollectionUtils.isEmpty(this.enderecos) ? gerarEnderecos() : this.enderecos;
-        return gerarEnderecos();
+        return CollectionUtils.isEmpty(this.enderecos) ? gerarEnderecos() : this.enderecos;
     }
 }
