@@ -8,7 +8,7 @@ public class EnderecoPersistenceException extends EnderecoException {
     }
 
     public enum EnderecoPersistenceEnum {
-        CREATE("Inclusão"), UPDATE("Atualização"), DELETE("Exclusão");
+        CREATE_UPDATE("Inclusão/Atualização"), DELETE("Exclusão");
 
         private String description;
 

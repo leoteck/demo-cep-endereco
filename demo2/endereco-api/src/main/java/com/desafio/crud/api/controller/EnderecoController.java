@@ -54,10 +54,4 @@ public class EnderecoController {
         enderecoService.delete(Long.parseLong(id));
         return ResponseEntity.ok().build();
     }
-
-   /* //TODO remover após finalizar os testes
-   @GetMapping(path = "/cep/{cep}")
-    public ResponseEntity buscarEnderecoPorCep(@PathVariable("cep") String cep) throws Exception {
-        return ResponseEntity.ok().body(cepApiRestClientConsumer.getEnderecoByCEP(cep));
-    }*/
 }
