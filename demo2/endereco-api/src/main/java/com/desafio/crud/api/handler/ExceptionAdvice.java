@@ -1,5 +1,6 @@
 package com.desafio.crud.api.handler;
 
+import com.desafio.crud.core.exception.CepApiClientConsumerException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -12,14 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 @RestControllerAdvice
 public class ExceptionAdvice {
 
+    @ResponseStatus(INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    @ExceptionHandler(CepApiClientConsumerException.class)
+    public String handlerCepApiClientConsumer(CepApiClientConsumerException ex) {
+        return ex.getMessage();
+    }
+
     @ResponseStatus(BAD_REQUEST)
     @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Error handler(MethodArgumentNotValidException ex) {
+    public Error handlerArgumentNotValid(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();
         List<FieldError> fieldErrors = result.getFieldErrors();
         return processFieldErrors(fieldErrors);
