@@ -1,19 +1,12 @@
 package com.desafio.cepws.core.process;
 
 import com.desafio.cepws.core.exception.ProcessamentoCEPException;
-import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Spy;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
 public class ProcessamentoCEPTest {
 
     @Spy
